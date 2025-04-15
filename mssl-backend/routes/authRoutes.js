@@ -15,7 +15,7 @@ router.post(
     check('email', 'Please include a valid email').isEmail(),
     check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })
   ],
-  authController.register
+  authController.register  // Make sure this is the correct function name
 );
 
 // @route   POST api/auth/login
@@ -27,12 +27,12 @@ router.post(
     check('email', 'Please include a valid email').isEmail(),
     check('password', 'Password is required').exists()
   ],
-  authController.login
+  authController.login  // Make sure this is the correct function name
 );
 
 // @route   GET api/auth/user
 // @desc    Get user data
 // @access  Private
-router.get('/user', auth, authController.getUser);
+router.get('/user', auth, authController.getUser);  // This is likely line 36
 
 module.exports = router;
